@@ -28,7 +28,7 @@ class Blockchain:
         nextPreviousHash = previousBlock.hash
         newBlock = Block(nextIndex, nextPreviousHash, nextTimestamp, data,
                          calculateHash(nextIndex, nextPreviousHash, nextTimestamp, data))
-        if self.validatingBlock(newBlock) == True:
+        if self.validatingBlock(newBlock):
             self.__chain.append(newBlock)
 
     def validatingBlock(self, newBlock):
