@@ -67,7 +67,7 @@ class Blockchain:
         prevAdjustmentBlock = self.__chain[len(self.__chain) - self.DIFFICULTY_ADJUSTMENT]
         timeExpected = self.BLOCK_INTERVAL * self.DIFFICULTY_ADJUSTMENT
         timeTaken = latestBlock.timestamp - prevAdjustmentBlock.timestamp
-        if timeTaken < timeExpected * 2:
+        if timeTaken < timeExpected / 2:
             return prevAdjustmentBlock.difficulty + 1
         elif timeTaken > timeExpected * 2:
             return prevAdjustmentBlock.difficulty - 1
